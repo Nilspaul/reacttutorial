@@ -57,3 +57,32 @@
   max-width: 100%;
   height: auto;
 }
+
+/* CSS-Datei (z. B. styles.css) */
+.navbar {
+  background-color: #f0f0f0; /* Grauer Hintergrund */
+  display: flex;
+  justify-content: flex-end; /* Elemente rechts ausrichten */
+  padding: 10px 20px; /* Innenabstand für die Navbar */
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.nav-item {
+  margin-left: 20px; /* Abstand zwischen den Elementen */
+}
+
+.nav-link {
+  text-decoration: none; /* Entferne die Standardunterstreichung für Links */
+  color: #333; /* Farbe der Links */
+  font-weight: bold; /* Fetter Text für die Links */
+}
+
+.nav-link:hover {
+  color: #555; /* Ändere die Farbe bei Hover */
+}
+
