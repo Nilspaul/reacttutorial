@@ -1,19 +1,27 @@
 import { useState, useEffect } from 'react';
 
 import Productlist from './Productlist';
+import remoteProducts from '../data/remoteProducts';
 
 const Main = () => {
   const [count, setCount] = useState(0);
   const [products, setProducts] = useState([]);
+
   const handleButtonClick = () => {
+    setCount((count) => count + 1)
     console.log(count)
   };
+
   useEffect(() => {
-    // Hier führen wir die Anfrage an deine Express API durch
-    fetch('http://127.0.0.1:3317/products')
-      .then((response) => response.json())
-      .then((data) => setProducts(data))
-      .catch((error) => console.error('Fehler bei der Anfrage:', error));
+    async function fetchProducts() {
+      // Warten auf die Remote-Daten
+      const data = await remoteProducts();
+
+      // dann als Produkte setzen
+      setProducts(data);
+    }
+
+    fetchProducts();
   }, []);
 
   return (

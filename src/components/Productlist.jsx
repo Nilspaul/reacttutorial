@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import Product from './Product';
 
 const Productlist = (props) => {
   const { title, list } = props;
@@ -8,7 +9,7 @@ const Productlist = (props) => {
   useEffect(() => {
     const modifiedProducts = list.map((product) => ({
       ...product,
-      price: calculatePrice(product), //Preisberechnungsfunktion aufrufen
+      price: product.price || calculatePrice(product), //Preisberechnungsfunktion aufrufen
     }));
 
     // Aktualisiere den Zustand mit der bearbeiteten Liste
@@ -16,7 +17,7 @@ const Productlist = (props) => {
   }, [list]); // Führe den Effekt aus, wenn props.list sich ändert
 
   const calculatePrice = (product) => {
-    return product.title.length * 10;
+    return Math.floor( Math.log2(product.title.length * 10) );
   };
 
   return (
@@ -24,14 +25,7 @@ const Productlist = (props) => {
       <h2>{title}:</h2>
       <div className="product-list">
         {modifiedList.map((product, index) => (
-          <div key={index} className="product">
-            <div>
-              <h3>{product.title}</h3>
-              <p>{product.desc}</p>
-              <img src={product.image} alt={product.title} />
-              <p>Preis: {product.price} EUR</p>
-            </div>
-          </div>
+          <Product data={product} key={index}/>
         ))}
       </div>
     </div>
@@ -42,6 +36,7 @@ Productlist.propTypes = {
   title: PropTypes.string,
   list: PropTypes.array
 };
+
 /* Props werden hier über Route übergeben
 Productlist.defaultProps = {
     title: 'Produkte' , // Setze einen Default-Wert für den Titel
