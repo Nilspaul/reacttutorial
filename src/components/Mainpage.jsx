@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 
-import Navigation from './Navbar';
 import Productlist from './Productlist';
 
 const Main = () => {
-    const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
   const [products, setProducts] = useState([]);
   const handleButtonClick = () => {
     console.log(count)
@@ -19,7 +18,6 @@ const Main = () => {
 
   return (
     <div>
-      <Navigation />
       <h1>Vite + React - Tutorial</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
