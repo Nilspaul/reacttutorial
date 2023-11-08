@@ -43,4 +43,8 @@ Productlist.propTypes = {
   list: PropTypes.array
 };
 
+Productlist.defaultProps = {
+    title: 'Produkte' // Setze einen Default-Wert für den Titel
+  };
+
 export default Productlist;
