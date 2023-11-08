@@ -87,6 +87,9 @@
   color: #333; /* Farbe der Links */
   font-weight: bold; /* Fetter Text für die Links */
 }
+.nav-link.active {
+  text-decoration: underline;
+}
 
 .nav-link:hover {
   color: #555; /* Ändere die Farbe bei Hover */
