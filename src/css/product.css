@@ -1,0 +1,9 @@
+.product {
+  border: 1px solid white;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+}
+
+.product.liked {
+  border-color: yellow;
+}

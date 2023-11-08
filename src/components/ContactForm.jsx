@@ -3,26 +3,19 @@ import "../css/contactForm.css"
 const ContactForm = () => {
   return (
     <div>
-      <h2>Kontaktiere Uns</h2>
-      <form action="action_page.php">
+      <h2>Kontaktiere uns</h2>
+      <form action="#">
 
-        <label>First Name</label>
-        <input type="text" id="fname" name="firstname" placeholder="Your name.."/>
+        <label htmlFor="fname">Vorname</label>
+        <input type="text" id="fname" name="firstname" placeholder="Dein Vorname"/>
 
-        <label >Last Name</label>
-        <input type="text" id="lname" name="lastname" placeholder="Your last name.."/>
+        <label htmlFor="lname">Nachname</label>
+        <input type="text" id="lname" name="lastname" placeholder="Dein Nachname"/>
 
-        <label>Country</label>
-        <select id="country" name="country">
-          <option value="australia">Australia</option>
-          <option value="canada">Canada</option>
-          <option value="usa">USA</option>
-        </select>
+        <label htmlFor="message">Nachricht</label>
+        <textarea id="message" name="message" placeholder="Hinterlass doch mal eine nette Nachricht :)"></textarea>
 
-        <label>Subject</label>
-        <textarea id="subject" name="subject" placeholder="Write something.."></textarea>
-
-        <input type="submit" value="Submit"/>
+        <input type="submit" value="Absenden"/>
       </form>
     </div> 
   );

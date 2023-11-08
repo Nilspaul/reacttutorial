@@ -37,10 +37,4 @@ Productlist.propTypes = {
   list: PropTypes.array
 };
 
-/* Props werden hier über Route übergeben
-Productlist.defaultProps = {
-    title: 'Produkte' , // Setze einen Default-Wert für den Titel
-    list: [{title: "test", price:"60", image: "/assets/burger.png"}]
-};
-*/
 export default Productlist;

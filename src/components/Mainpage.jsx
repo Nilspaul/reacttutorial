@@ -1,45 +1,46 @@
 import { useState, useEffect } from 'react';
-
-import Productlist from './Productlist';
-import remoteProducts from '../data/remoteProducts';
+import remoteCategories from '../data/remoteCategories';
+import CategoryList from './CategoryList';
 
 const Main = () => {
   const [count, setCount] = useState(0);
-  const [products, setProducts] = useState([]);
-
-  const handleButtonClick = () => {
-    setCount((count) => count + 1)
-    console.log(count)
-  };
+  const [count2, setCount2] = useState(0);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    async function fetchProducts() {
-      // Warten auf die Remote-Daten
-      const data = await remoteProducts();
+    document.title = 'Startseite';
 
-      // dann als Produkte setzen
-      setProducts(data);
+    async function fetchCategories() {
+      // Warten auf die Remote-Daten
+      const data = await remoteCategories();
+
+      // anschließend als Produkte setzen
+      setCategories(data);
     }
 
-    fetchProducts();
+    // initaliser aufruf
+    fetchCategories();
   }, []);
 
+  const handleButtonClick = () => {
+    setCount2((count2) => count2 + 1)
+  };
+
   return (
-    <div>
+    <>
       <h1>Vite + React - Tutorial</h1>
       <div className="card">
+        <p>Einfacher Counter</p>
         <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+          1. Counter: {count}
         </button>
         <button onClick={handleButtonClick}>
-          count is {count}
+          2. Counter: {count2}
         </button>
       </div>
-      <Productlist title="Produkte" list={products} />
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+      <hr />
+      <CategoryList title="Kategorien" list={categories} />
+    </>
 );
 }
 

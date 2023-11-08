@@ -4,37 +4,35 @@
  * @param [] data 
  * @returns 
  */
-function prepareProductData(data) {
-  if(!data) {
-    return [];
-  }
+function prepareCategoriesData(data) {
   let tmp = [];
   data.forEach((value, index) => {
     tmp.push(
       {
-        key: value.idMeal,
-        title: value.strMeal,
-        image: value.strMealThumb
+        key: value.idCategory,
+        title: value.strCategory,
+        desc: value.strCategoryDescription,
+        image: value.strCategoryThumb
       }
     )
   });
   return tmp;
 }
 
-const remoteProducts = async (category) => {
+const remoteCategories = async () => {
   try {
     // Await the response of the fetch call
-    let response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=' + category);
+    let response = await fetch('https://www.themealdb.com/api/json/v1/1/categories.php');
 
     // Rückgabe als JSON-Speichern
     let json = await response.json();
 
     // Daten aufbereiten
-    return prepareProductData(json.meals);
+    return prepareCategoriesData(json.categories);
   } catch (error) {
     console.error('Fehler bei der Anfrage:', error);
     return [];
   }
 };
 
-export default remoteProducts
+export default remoteCategories

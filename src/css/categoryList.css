@@ -1,0 +1,18 @@
+.category-list {
+}
+
+.category > h3 {
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.product-list {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.product-list .product {
+  width: 100%;
+}
