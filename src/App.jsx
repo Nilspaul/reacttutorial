@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import reactLogo from '/assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
-import PropTypes from 'prop-types';
+import Productlist from './components/Productlist'; // Importiere die Productlist-Komponente
 
 function App() {
   const [count, setCount] = useState(0);
@@ -34,7 +34,7 @@ function App() {
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
-        <Productlist list={products} />
+        <Productlist list={products} /> {/* Verwende die Productlist-Komponente hier */}
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
@@ -42,27 +42,5 @@ function App() {
     </>
   );
 }
-
-const Productlist = (props) => (
-  <div>
-    <h2>Produkte:</h2>
-    <ul>
-      {props.list.map((product, index) => (
-        <li key={index}>
-          <div>
-            <h3>{product.title}</h3>
-            <p>{product.desc}</p>
-            <p>{product.image}</p>
-            <img src={product.image} alt={product.title} />
-          </div>
-        </li>
-      ))}
-    </ul>
-  </div>
-);
-
-Productlist.propTypes = {
-  list: PropTypes.array
-};
 
 export default App;

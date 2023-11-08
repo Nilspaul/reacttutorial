@@ -40,3 +40,20 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Productlist.css */
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product {
+  width: 50%; /* Jede Produktkarte ist 50% der Breite des Containers */
+  padding: 10px;
+  box-sizing: border-box; /* Um Padding in die Breite einzubeziehen */
+}
+
+.product img {
+  max-width: 100%;
+  height: auto;
+}
