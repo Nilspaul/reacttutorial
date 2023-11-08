@@ -26,7 +26,7 @@ function App() {
         <button onClick={handleButtonClick}>
           count is {count}
         </button>
-        <Productlist list={products} />
+        <Productlist title="Liste der Produkte" list={products} />
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
